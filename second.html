@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greencart</title>
+    <style>
+        body {
+            background-image: url('background.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin-left: 200px;
+        }
+        .top-bar {
+            width: 100%;
+            height: 50px;
+            background-color: green;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 200px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 50px;
+        }
+        .search-box input {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .search-box button {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: green;
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: darkgray;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            display: block;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: gray;
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 210px;
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .welcome {
+            position: absolute;
+            padding: 10px;
+            margin-top: 60px;
+            background-attachment: fixed;
+            width: 100%;
+            text-align: center;
+            text-decoration-color: aqua;
+            text-size-adjust: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            animation: moveWelcome 15s linear infinite alternate;
+            background-color: green;
+            color: aqua;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin-top: 100px;
+            justify-items: center;
+        }
+        .category-box {
+            width: 250px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        @keyframes moveBoxes {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .category-box {
+            animation: moveBoxes 3s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar" id="sidebar">
+        <a href="#">Menu</a>
+        <a href="#">Account</a>
+        <a href="#">Settings</a>
+        <a href="#">Orders</a>
+        <a href="#">Logout</a>
+    </div>
+    <div class="top-bar">
+        GreenCart Online Store
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </div>
+    <div class="welcome">
+        welcome to green cart
+    </div>
+    <div class="categories">
+        <div class="category-box" style="background-image: url('electronics.jpg');">Electronics</div>
+        <div class="category-box" style="background-image: url('clothing.jpg');">Clothing</div>
+        <div class="category-box" style="background-image: url('groceries.jpg');">Groceries</div>
+        <div class="category-box" style="background-image: url('furniture.jpg');">Furniture</div>
+        <div class="category-box" style="background-image: url('toys.jpg');">Toys</div>
+        <div class="category-box" style="background-image: url('sports.jpg');">Sports</div>
+        <div class="category-box" style="background-image: url('beauty.jpg');">Beauty</div>
+        <div class="category-box" style="background-image: url('books.jpg');">Books</div>
+        <div class="category-box" style="background-image: url('shoes.jpg');">Shoes</div>
+      </div>
+      <script>
+          function toggleSidebar() {
+              const sidebar = document.getElementById("sidebar");
+              sidebar.classList.toggle("hidden");
+          }
+      </script>
+</body>
+</html>
